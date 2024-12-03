@@ -51,7 +51,7 @@ route.post("/createEntry", async (req, res) => {
     // Send this new entry to all connected clients
     emitNewEntry({
         id: entry._id,
-        date: entry.date.toLocaleDateString(),
+        date: entry.date == null ? null : entry.date.toLocaleDateString(),
         habit: entry.habit,
         content: entry.content.slice(0, 20) + "...",
     });
